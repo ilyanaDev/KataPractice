@@ -11,12 +11,24 @@ namespace _2020_06_19
     {
         public string FizzBuzz(int input) 
         {
-            // declare string to hold input
             // if input is divisible by 3 and 5, return "FizzBuzz"
+            if (input % 3 == 0 && input % 5 == 0) 
+            {
+                return "FizzBuzz";
+            }
             // if input is divisible by 3 or 5
                 // if input is divisible by 3, return "Fizz"
+            if (input % 3 == 0)
+            {
+                return "Fizz";
+            }
                 // if input is divisible by 5, return "Buzz"
+            if (input % 5 == 0)
+            {
+                return "Buzz";
+            }
             //else return input
+            return input.ToString();
         }
     }
     
