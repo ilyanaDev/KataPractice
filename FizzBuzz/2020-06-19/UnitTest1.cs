@@ -34,10 +34,71 @@ namespace _2020_06_19
     
     public class UnitTest1
     {
-        [Fact]
-        public void Test1()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(4)]
+        public void GivesInputGivenInput(int input)
         {
+            // Arrange
+            var fb = new Formatter();
+
+            // Act
+            String output = fb.FizzBuzz(input);
+
+            // Assert
+            Assert.Equal(input.ToString(), output);
 
         }
+
+        [Theory]
+        [InlineData(3)]
+        [InlineData(6)]
+        public void GivesFizzGivenMultOf3(int input)
+        {
+            // Arrange
+            var fb = new Formatter();
+
+            // Act
+            String output = fb.FizzBuzz(input);
+
+            // Assert
+            Assert.Equal("Fizz", output);
+
+        }
+
+        [Theory]
+        [InlineData(5)]
+        [InlineData(10)]
+        public void GivesBuzzGivenMultOf5(int input)
+        {
+            // Arrange
+            var fb = new Formatter();
+
+            // Act
+            String output = fb.FizzBuzz(input);
+
+            // Assert
+            Assert.Equal("Buzz", output);
+
+        }
+
+        [Theory]
+        [InlineData(15)]
+        [InlineData(30)]
+        public void GivesFizzBuzzGivenMultOf3and5(int input)
+        {
+            // Arrange
+            var fb = new Formatter();
+
+            // Act
+            String output = fb.FizzBuzz(input);
+
+            // Assert
+            Assert.Equal("FizzBuzz", output);
+
+        }
+
+
     }
 }
