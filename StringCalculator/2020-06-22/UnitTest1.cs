@@ -19,5 +19,21 @@ namespace _2020_06_22
             Assert.Equal(0, output);
 
         }
+
+        [Theory]
+        [InlineData("1")]
+        [InlineData("17")]
+        public void returnsNumGivenOneNum(string input)
+        {
+            // Arrange 
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(int.Parse(input), output);
+
+        }
     }
 }

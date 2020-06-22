@@ -7,7 +7,12 @@ namespace _2020_06_22
     {
         public int Add(string numbers)
         {
-            return 0;
+            if (numbers.Equals(""))
+            {
+                return 0;
+            }
+
+            return int.Parse(numbers);
         }
     }
 }
