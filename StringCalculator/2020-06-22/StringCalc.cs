@@ -12,7 +12,19 @@ namespace _2020_06_22
                 return 0;
             }
 
-            return int.Parse(numbers);
+            char[] allowableChars = {',', '\n'}; 
+
+            string[] nums = numbers.Split(allowableChars);
+            int sum = 0;
+
+            foreach (var num in nums)
+            {
+                int numint = int.Parse(num);
+                sum += numint;
+            }
+
+            return sum;
+
         }
     }
 }
