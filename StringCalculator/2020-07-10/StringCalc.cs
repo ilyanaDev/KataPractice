@@ -12,9 +12,11 @@ namespace _2020_07_10
                 return 0;
             }
 
-            if(numbers.Contains(","))
+            if(numbers.Contains(",") || numbers.Contains("\n"))
             {
-                string[] numbersArray = numbers.Split(",");
+                char[] separators = {',', '\n' };
+
+                string[] numbersArray = numbers.Split(separators);
 
                 int sum = 0;
 

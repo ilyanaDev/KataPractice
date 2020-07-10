@@ -80,5 +80,20 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void returnsSumGivenNewLineSeparator()
+        {
+            // Arrange 
+            String input = "1\n4,7";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(12, output);
+
+        }
+
     }
 }
