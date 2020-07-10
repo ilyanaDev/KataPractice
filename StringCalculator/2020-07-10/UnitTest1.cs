@@ -95,5 +95,20 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void returnsSumGivenDefinedDelimiter()
+        {
+            // Arrange 
+            String input = "//&\n0&7&5";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(12, output);
+
+        }
+
     }
 }
