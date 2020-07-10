@@ -50,5 +50,35 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void returnsSumGivenThreeNum()
+        {
+            // Arrange 
+            String input = "11,5,7";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(23, output);
+
+        }
+
+        [Fact]
+        public void returnsSumGivenFiveNum()
+        {
+            // Arrange 
+            String input = "11,5,7,3,1";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(27, output);
+
+        }
+
     }
 }
