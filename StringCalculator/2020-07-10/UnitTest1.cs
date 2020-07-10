@@ -35,5 +35,20 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void returnsSumGivenTwoNum()
+        {
+            // Arrange 
+            String input = "11,5";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(16, output);
+
+        }
+
     }
 }
