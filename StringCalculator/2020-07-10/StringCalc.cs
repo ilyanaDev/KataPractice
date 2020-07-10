@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Xunit;
+using Xunit.Sdk;
 
 namespace _2020_07_10
 {
@@ -16,6 +17,7 @@ namespace _2020_07_10
                 return 0;
             }
 
+            //testing for user-defined delimiter
             if(numbers.Contains("//"))
             {
                 //assuming user never inputs \n as delimiter
@@ -32,6 +34,31 @@ namespace _2020_07_10
 
             }
 
+            if(numbers.Contains("-"))
+            {
+                string negsList = "";
+                bool foundNegBefore = false;
+
+                for(int i = 0; i < numbers.Length; i++)
+                {
+                    if(numbers.Substring(i,1).Equals("-"))
+                    {
+                        if(foundNegBefore)
+                        {
+                            negsList = negsList + ",";
+                        }
+
+                        negsList = negsList + numbers.Substring(i, 2);
+
+                        foundNegBefore = true;
+
+                    }
+                }
+
+                throw new Exception("Negatives not allowed: " + negsList);
+            }
+
+            //actual calculations for output
             if(numbers.Contains(separators[0]) || numbers.Contains(separators[1]))
             {
 
