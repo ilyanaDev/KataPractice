@@ -22,6 +22,10 @@ namespace csharp
         {
             return new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = quality, SellIn = sellIn };
         }
+        public Item getConjuredItem(int sellIn = 11, int quality = 5)
+        {
+            return new Item { Name = "Conjured", Quality = quality, SellIn = sellIn };
+        }
 
 
         [Test]
@@ -247,6 +251,38 @@ namespace csharp
 
             //Assert
             Assert.AreEqual(originalQuality + 3, Items[0].Quality);
+        }
+
+        [Test]
+        public void ConjuredItemDegradesBy2BeforeSellIn()
+        {
+            //Arrange
+            IList<Item> Items = new List<Item> { this.getConjuredItem() };
+            GildedRose GR = new GildedRose(Items);
+
+            int originalSellIn = Items[0].SellIn;
+            int originalQuality = Items[0].Quality;
+            //Act
+            GR.UpdateQuality();
+
+            //Assert
+            Assert.AreEqual(originalQuality - 2, Items[0].Quality);
+        }
+
+        [Test]
+        public void ConjuredItemDegradesBy4AfterSellIn()
+        {
+            //Arrange
+            IList<Item> Items = new List<Item> { this.getConjuredItem(-1,5) };
+            GildedRose GR = new GildedRose(Items);
+
+            int originalSellIn = Items[0].SellIn;
+            int originalQuality = Items[0].Quality;
+            //Act
+            GR.UpdateQuality();
+
+            //Assert
+            Assert.AreEqual(originalQuality - 4, Items[0].Quality);
         }
 
     }
