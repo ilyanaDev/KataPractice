@@ -49,6 +49,13 @@ namespace BuilderTestSample.Tests.TestBuilders
             return this;
         }
 
+        public AddressBuilder WithCountry(string _country)
+        {
+            _Address.Country = _country;
+
+            return this;
+        }
+
         public Address Build()
         {
             return _Address;

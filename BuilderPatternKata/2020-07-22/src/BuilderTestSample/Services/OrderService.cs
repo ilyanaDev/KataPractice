@@ -60,7 +60,8 @@ namespace BuilderTestSample.Services
 
             if (String.IsNullOrEmpty(homeAddress.PostalCode)) throw new InvalidAddressException("Address must have postal code.");
 
-            // TODO: country is required (not null or empty)
+            if (String.IsNullOrEmpty(homeAddress.Country)) throw new InvalidAddressException("Address must have a country.");
+
         }
 
         private void ExpediteOrder(Order order)
