@@ -20,7 +20,7 @@ namespace BuilderTestSample.Tests
         {
             Address tester = new AddressBuilder().WithTestValues().WithStreet1(null).Build();
 
-            var customer = _customerBuilder.WithTestValues().Build();
+            var customer = _customerBuilder.WithTestValues().WithAddress(tester).Build();
 
             var order = _orderBuilder
                 .WithTestValues()
@@ -36,7 +36,7 @@ namespace BuilderTestSample.Tests
         {
             Address tester = new AddressBuilder().WithTestValues().WithCity("").Build();
 
-            var customer = _customerBuilder.WithTestValues().Build();
+            var customer = _customerBuilder.WithTestValues().WithAddress(tester).Build();
 
             var order = _orderBuilder
                 .WithTestValues()
