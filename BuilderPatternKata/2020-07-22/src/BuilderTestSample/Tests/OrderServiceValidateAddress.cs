@@ -47,5 +47,21 @@ namespace BuilderTestSample.Tests
 
         }
 
+        [Fact]
+        public void ThrowsExceptionGivenNoState()
+        {
+            Address tester = new AddressBuilder().WithTestValues().WithState("").Build();
+
+            var customer = _customerBuilder.WithTestValues().WithAddress(tester).Build();
+
+            var order = _orderBuilder
+                .WithTestValues()
+                .WithCustomer(customer)
+                .Build();
+
+            Assert.Throws<InvalidAddressException>(() => _orderService.PlaceOrder(order));
+
+        }
+
     }
 }

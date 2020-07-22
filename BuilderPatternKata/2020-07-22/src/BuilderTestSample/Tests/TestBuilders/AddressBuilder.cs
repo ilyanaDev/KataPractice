@@ -35,6 +35,13 @@ namespace BuilderTestSample.Tests.TestBuilders
             return this;
         }
 
+        public AddressBuilder WithState(string _state)
+        {
+            _Address.State = _state;
+
+            return this;
+        }
+
         public Address Build()
         {
             return _Address;
