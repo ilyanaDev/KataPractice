@@ -31,7 +31,6 @@ namespace BuilderTestSample.Services
         private void ValidateCustomer(Customer customer)
         {
             // throw InvalidCustomerException unless otherwise noted
-            // create a CustomerBuilder to implement the tests for these scenarios
 
             if (customer.Id <= 0) throw new InvalidCustomerException("Customer must have an ID greater than zero.");
 
@@ -52,9 +51,9 @@ namespace BuilderTestSample.Services
         private void ValidateAddress(Address homeAddress)
         {
             // throw InvalidAddressException unless otherwise noted
-            // create an AddressBuilder to implement the tests for these scenarios
 
             // TODO: street1 is required (not null or empty)
+            if (String.IsNullOrEmpty(homeAddress.Street1)) throw new InvalidAddressException("Address must have Street1.");
             // TODO: city is required (not null or empty)
             // TODO: state is required (not null or empty)
             // TODO: postalcode is required (not null or empty)
