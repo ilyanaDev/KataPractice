@@ -32,6 +32,12 @@ namespace BuilderTestSample.Tests.TestBuilders
 
             return this;
         }
+        public CustomerBuilder WithAddress(Address _address)
+        {
+            _Address = _address;
+
+            return this;
+        }
 
         public Customer Build()
         {
