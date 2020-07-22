@@ -59,6 +59,13 @@ namespace BuilderTestSample.Tests.TestBuilders
             return this;
         }
 
+        public CustomerBuilder WithTotalPurchases(decimal _totalPurchases)
+        {
+            _TotalPurchases = _totalPurchases;
+
+            return this;
+        }
+
         public Customer Build()
         {
             Customer toBuild = new Customer(_Id);

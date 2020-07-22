@@ -41,10 +41,10 @@ namespace BuilderTestSample.Services
             { 
                 throw new InvalidCustomerException("Customer must have a full name."); 
             }
-            // TODO: customer must have credit rating > 200 (otherwise throw InsufficientCreditException)
 
             if (customer.CreditRating <= 200) throw new InvalidCustomerException("Customer must have credit rating over 200.");
-            // TODO: customer must have total purchases >= 0
+
+            if (customer.TotalPurchases < 0) throw new InvalidCustomerException("Customer must not have negative total purchases.");
 
             ValidateAddress(customer.HomeAddress);
         }
