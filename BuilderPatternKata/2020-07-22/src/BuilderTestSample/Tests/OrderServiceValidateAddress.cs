@@ -16,9 +16,25 @@ namespace BuilderTestSample.Tests
         private readonly CustomerBuilder _customerBuilder = new CustomerBuilder();
 
         [Fact]
-        public void ThrowsExceptionGivenNullStreet1()
+        public void ThrowsExceptionGivenNoStreet1()
         {
             Address tester = new AddressBuilder().WithTestValues().WithStreet1(null).Build();
+
+            var customer = _customerBuilder.WithTestValues().Build();
+
+            var order = _orderBuilder
+                .WithTestValues()
+                .WithCustomer(customer)
+                .Build();
+
+            Assert.Throws<InvalidAddressException>(() => _orderService.PlaceOrder(order));
+
+        }
+
+        [Fact]
+        public void ThrowsExceptionGivenNoCity()
+        {
+            Address tester = new AddressBuilder().WithTestValues().WithCity("").Build();
 
             var customer = _customerBuilder.WithTestValues().Build();
 

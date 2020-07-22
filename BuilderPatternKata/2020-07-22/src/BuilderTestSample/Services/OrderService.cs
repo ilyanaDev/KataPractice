@@ -52,8 +52,8 @@ namespace BuilderTestSample.Services
         {
             // throw InvalidAddressException unless otherwise noted
 
-            // TODO: street1 is required (not null or empty)
             if (String.IsNullOrEmpty(homeAddress.Street1)) throw new InvalidAddressException("Address must have Street1.");
+            
             // TODO: city is required (not null or empty)
             // TODO: state is required (not null or empty)
             // TODO: postalcode is required (not null or empty)

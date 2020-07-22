@@ -35,6 +35,13 @@ namespace BuilderTestSample.Tests.TestBuilders
             return this;
         }
 
+        public AddressBuilder WithCity(string _city)
+        {
+            _City = _city;
+
+            return this;
+        }
+
         public Address Build()
         {
             return _Address;
