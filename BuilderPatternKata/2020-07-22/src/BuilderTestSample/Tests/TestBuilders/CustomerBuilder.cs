@@ -26,6 +26,13 @@ namespace BuilderTestSample.Tests.TestBuilders
             return this;
         }
 
+        public CustomerBuilder WithId(int _id)
+        {
+            _Id = _id;
+
+            return this;
+        }
+
         public Customer Build()
         {
             Customer toBuild = new Customer(_Id);
