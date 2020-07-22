@@ -103,6 +103,23 @@ namespace BuilderTestSample.Tests
             Assert.Contains(order, customer.OrderHistory);
         }
 
+        [Fact]
+        public void AddsOrderToCustomerTotalPurchases()
+        {
+            var customer = new CustomerBuilder().WithTestValues().Build();
+
+            var customerOriginalTotalPurchases = customer.TotalPurchases;
+
+            var order = _orderBuilder
+                            .WithTestValues()
+                            .WithCustomer(customer)
+                            .Build();
+
+            _orderService.PlaceOrder(order);
+
+            Assert.Equal(customer.TotalPurchases, customerOriginalTotalPurchases + order.TotalAmount);
+        }
+
 
     }
 }
