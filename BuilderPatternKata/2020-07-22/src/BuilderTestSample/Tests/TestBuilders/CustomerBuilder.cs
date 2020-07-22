@@ -19,7 +19,7 @@ namespace BuilderTestSample.Tests.TestBuilders
             _Id = 111;
             _FirstName = "Ilyana";
             _LastName = "Smith";
-            _Address = new Address();
+            _Address = new AddressBuilder().WithTestValues().Build();
             _CreditRating = 300;
             _TotalPurchases = 100;
 

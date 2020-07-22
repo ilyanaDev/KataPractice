@@ -43,6 +43,51 @@ namespace BuilderTestSample.Tests
             Assert.Throws<InvalidOrderException>(() => _orderService.PlaceOrder(order));
         }
 
+        [Fact]
+        public void IsExpeditedGivenHighPurchasesHighCredit()
+        {
+            var customer = new CustomerBuilder().WithTestValues().WithCreditRating(501).WithTotalPurchases(6000).Build();
+
+            var order = _orderBuilder
+                            .WithTestValues()
+                            .WithCustomer(customer)
+                            .Build();
+
+            _orderService.PlaceOrder(order);
+
+            Assert.True(order.IsExpedited);
+        }
+
+        [Fact]
+        public void NotIsExpeditedGivenHighPurchasesLowCredit()
+        {
+            var customer = new CustomerBuilder().WithTestValues().WithCreditRating(500).WithTotalPurchases(6000).Build();
+
+            var order = _orderBuilder
+                            .WithTestValues()
+                            .WithCustomer(customer)
+                            .Build();
+
+            _orderService.PlaceOrder(order);
+
+            Assert.False(order.IsExpedited);
+        }
+
+        [Fact]
+        public void NotIsExpeditedGivenLowPurchasesHighCredit()
+        {
+            var customer = new CustomerBuilder().WithTestValues().WithCreditRating(501).WithTotalPurchases(4000).Build();
+
+            var order = _orderBuilder
+                            .WithTestValues()
+                            .WithCustomer(customer)
+                            .Build();
+
+            _orderService.PlaceOrder(order);
+
+            Assert.False(order.IsExpedited);
+        }
+
 
     }
 }
