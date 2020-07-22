@@ -88,6 +88,21 @@ namespace BuilderTestSample.Tests
             Assert.False(order.IsExpedited);
         }
 
+        [Fact]
+        public void AddsOrderToCustomerHistory()
+        {
+            var customer = new CustomerBuilder().WithTestValues().Build();
+
+            var order = _orderBuilder
+                            .WithTestValues()
+                            .WithCustomer(customer)
+                            .Build();
+
+            _orderService.PlaceOrder(order);
+
+            Assert.Contains(order, customer.OrderHistory);
+        }
+
 
     }
 }
