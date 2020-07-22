@@ -39,5 +39,45 @@ namespace BuilderTestSample.Tests
 
             Assert.Throws<InvalidCustomerException>(() => _orderService.PlaceOrder(order));
         }
+
+        [Fact]
+        public void ThrowsExceptionGivenCustomerWithNoFirstName()
+        {
+            Customer tester = new CustomerBuilder().WithTestValues().WithFirstName("").Build();
+
+            var order = _orderBuilder
+                .WithTestValues()
+                .WithCustomer(tester)
+                .Build();
+
+            Assert.Throws<InvalidCustomerException>(() => _orderService.PlaceOrder(order));
+        }
+
+        [Fact]
+        public void ThrowsExceptionGivenCustomerWithNoLastName()
+        {
+            Customer tester = new CustomerBuilder().WithTestValues().WithLastName("").Build();
+
+            var order = _orderBuilder
+                .WithTestValues()
+                .WithCustomer(tester)
+                .Build();
+
+            Assert.Throws<InvalidCustomerException>(() => _orderService.PlaceOrder(order));
+        }
+
+        [Fact]
+        public void ThrowsExceptionGivenCustomerWithLowCreditRating()
+        {
+            Customer tester = new CustomerBuilder().WithTestValues().WithCreditRating(200).Build();
+
+            var order = _orderBuilder
+                .WithTestValues()
+                .WithCustomer(tester)
+                .Build();
+
+            Assert.Throws<InvalidCustomerException>(() => _orderService.PlaceOrder(order));
+        }
+
     }
 }

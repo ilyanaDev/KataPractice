@@ -1,5 +1,6 @@
 ﻿using BuilderTestSample.Exceptions;
 using BuilderTestSample.Model;
+using System;
 
 namespace BuilderTestSample.Services
 {
@@ -35,8 +36,14 @@ namespace BuilderTestSample.Services
             if (customer.Id <= 0) throw new InvalidCustomerException("Customer must have an ID greater than zero.");
 
             if (customer.HomeAddress is null) throw new InvalidCustomerException("Customer must have an address.");
-            // TODO: customer must have a first and last name
+
+            if (String.IsNullOrEmpty(customer.FirstName) || String.IsNullOrEmpty(customer.LastName)) 
+            { 
+                throw new InvalidCustomerException("Customer must have a full name."); 
+            }
             // TODO: customer must have credit rating > 200 (otherwise throw InsufficientCreditException)
+
+            if (customer.CreditRating <= 200) throw new InvalidCustomerException("Customer must have credit rating over 200.");
             // TODO: customer must have total purchases >= 0
 
             ValidateAddress(customer.HomeAddress);

@@ -39,6 +39,26 @@ namespace BuilderTestSample.Tests.TestBuilders
             return this;
         }
 
+        public CustomerBuilder WithFirstName(string _firstName)
+        {
+            _FirstName = _firstName;
+
+            return this;
+        }
+
+        public CustomerBuilder WithLastName(string _lastName)
+        {
+            _LastName = _lastName;
+
+            return this;
+        }
+        public CustomerBuilder WithCreditRating(int rating)
+        {
+            _CreditRating = rating;
+
+            return this;
+        }
+
         public Customer Build()
         {
             Customer toBuild = new Customer(_Id);
