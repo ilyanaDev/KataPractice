@@ -11,7 +11,28 @@ namespace _2020_07_10
         {
             char[] delimiters = { ',', '\n' };
 
-            if(nums.Contains(",") || nums.Contains("\n"))
+            if(nums.Contains("//"))
+            {
+                int sum = 0;
+
+                char[] delimitersHere = nums.ToCharArray(2, 1);
+
+                char[] delimitersNow = { delimitersHere[0], delimiters[0], delimiters[1] };
+
+                string onlyNums = nums.Substring(nums.IndexOf("\n") + 1);
+
+                string[] numsArray = onlyNums.Split(delimitersNow);
+
+                foreach (string num in numsArray)
+                {
+                    sum += int.Parse(num);
+                }
+
+                return sum;
+
+            }
+
+            if (nums.Contains(",") || nums.Contains("\n"))
             {
                 int sum = 0;
 

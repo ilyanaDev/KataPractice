@@ -80,6 +80,21 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void returnsSumGivenUserInputDelimiter()
+        {
+            // Arrange 
+            String input = "//;\n5,1\n6;3";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(15, output);
+
+        }
+
 
     }
 }
