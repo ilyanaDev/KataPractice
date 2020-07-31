@@ -50,6 +50,21 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void returnsSumGivenManyNum()
+        {
+            // Arrange 
+            String input = "5,21,7,13";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(46, output);
+
+        }
+
 
     }
 }
