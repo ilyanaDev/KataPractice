@@ -65,6 +65,21 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void returnsSumGivenNewLineDelimiter()
+        {
+            // Arrange 
+            String input = "5,1\n6";
+            var s = new StringCalc();
+
+            // Act
+            int output = s.Add(input);
+
+            // Assert
+            Assert.Equal(12, output);
+
+        }
+
 
     }
 }

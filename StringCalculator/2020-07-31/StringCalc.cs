@@ -9,11 +9,13 @@ namespace _2020_07_10
     {
         public int Add(string nums)
         {
-            if(nums.Contains(","))
+            char[] delimiters = { ',', '\n' };
+
+            if(nums.Contains(",") || nums.Contains("\n"))
             {
                 int sum = 0;
 
-                string[] numsArray = nums.Split(",");
+                string[] numsArray = nums.Split(delimiters);
 
                 foreach (string num in numsArray)
                 {
