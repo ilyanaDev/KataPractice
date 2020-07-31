@@ -95,6 +95,20 @@ namespace _2020_07_10
 
         }
 
+        [Fact]
+        public void throwsExceptionGivenNegs()
+        {
+            // Arrange 
+            String input = "-4,3,-2";
+            var s = new StringCalc();
+
+            // Act
+            var result = Assert.Throws<Exception>(() => s.Add(input));
+
+            // Assert
+            Assert.Equal("Negatives not allowed: -4,-2", result.Message);
+        }
+
 
     }
 }

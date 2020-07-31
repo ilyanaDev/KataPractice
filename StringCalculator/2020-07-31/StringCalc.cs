@@ -11,6 +11,24 @@ namespace _2020_07_10
         {
             char[] delimiters = { ',', '\n' };
 
+           if(nums.Contains("-"))
+            {
+                string negs = "";
+
+                while(nums.Contains("-"))
+                {
+                    negs = negs + "-" + nums.Substring(nums.IndexOf("-") + 1, 1) + ",";
+
+                    nums = nums.Substring(nums.IndexOf("-") + 1);
+                }
+
+                negs = negs.Substring(0, negs.Length - 1);
+
+                string message = "Negatives not allowed: " + negs;
+
+                throw new Exception(message);
+            }
+
             if(nums.Contains("//"))
             {
                 int sum = 0;
