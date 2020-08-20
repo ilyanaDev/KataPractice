@@ -18,7 +18,9 @@ namespace _2020_08_20
             
             int sum = 0;
 
-            string[] numberArray = numbers.Split(",");
+            char[] separators = { ',', '\n' };
+
+            string[] numberArray = numbers.Split(separators);
 
             if (numberArray.Length > 0)
             {

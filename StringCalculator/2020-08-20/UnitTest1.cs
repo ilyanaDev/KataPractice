@@ -64,5 +64,20 @@ namespace _2020_08_20
             Assert.Equal(14, output);
 
         }
+
+        [Fact]
+        public void HandlesNewLineSeparator()
+        {
+            //Arrange
+            string input = "5,3,1,1\n4";
+            StringCalc sc = new StringCalc();
+
+            //Act
+            int output = sc.Add(input);
+
+            //Assert
+            Assert.Equal(14, output);
+
+        }
     }
 }
