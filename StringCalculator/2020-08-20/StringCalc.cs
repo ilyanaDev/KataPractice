@@ -23,7 +23,24 @@ namespace _2020_08_20
             {
                 delimitors[1] = numbers[2];
 
-                numbers = numbers.Substring(4);                  
+                numbers = numbers.Substring(4);
+            }
+
+            if (numbers.Contains("-"))
+            {
+                string negativesMessage = "Negatives not allowed: ";
+
+                for(int i = 0; i < numbers.Length - 1; i++)
+                {
+                    if(numbers[i].Equals('-'))
+                    {
+                        negativesMessage += "-" + numbers[i + 1] + ",";
+                    }
+                }
+
+                //negativesMessage = negativesMessage.Substring(0, negativesMessage.Length - 1);
+
+                throw new Exception(negativesMessage);
             }
 
             int sum = 0;
