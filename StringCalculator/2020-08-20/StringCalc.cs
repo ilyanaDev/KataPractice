@@ -11,12 +11,17 @@ namespace _2020_08_20
     {
         public int Add(string numbers)
         {
+            if(string.IsNullOrEmpty(numbers))
+            {
+                return 0;
+            }
+            
             int sum = 0;
 
-            if(numbers.Contains(","))
-            {
-                string[] numberArray = numbers.Split(",");
+            string[] numberArray = numbers.Split(",");
 
+            if (numberArray.Length > 0)
+            {
                 foreach(string n in numberArray)
                 {
                     sum += int.Parse(n);
@@ -24,13 +29,9 @@ namespace _2020_08_20
 
                 return sum;
             }
-            
-            if(!(numbers.Contains(",")) && numbers.Length > 0)
-            {
-                return int.Parse(numbers);
-            }
-            
+
             return 0;
+                        
         }
 
     }
