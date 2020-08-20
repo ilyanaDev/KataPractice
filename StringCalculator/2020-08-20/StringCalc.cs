@@ -15,12 +15,20 @@ namespace _2020_08_20
             {
                 return 0;
             }
-            
+
+            char[] delimitors = { ',', '\n' };
+
+
+            if (numbers.StartsWith("//"))
+            {
+                delimitors[1] = numbers[2];
+
+                numbers = numbers.Substring(4);                  
+            }
+
             int sum = 0;
 
-            char[] separators = { ',', '\n' };
-
-            string[] numberArray = numbers.Split(separators);
+            string[] numberArray = numbers.Split(delimitors);
 
             if (numberArray.Length > 0)
             {

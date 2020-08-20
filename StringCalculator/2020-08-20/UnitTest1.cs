@@ -79,5 +79,20 @@ namespace _2020_08_20
             Assert.Equal(14, output);
 
         }
+
+        [Fact]
+        public void HandlesDefinedDeliminator()
+        {
+            //Arrange
+            string input = "//;\n3;2;1";
+            StringCalc sc = new StringCalc();
+
+            //Act
+            int output = sc.Add(input);
+
+            //Assert
+            Assert.Equal(6, output);
+
+        }
     }
 }
