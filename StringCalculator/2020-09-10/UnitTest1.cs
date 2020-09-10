@@ -84,5 +84,21 @@ namespace _2020_09_10
             Assert.Equal(expected, output);
 
         }
+
+        [Fact]
+        public void HandlesUserDefinedDelimeter()
+        {
+            // Arrange
+            var sc = new StringCalc();
+            int expected = 27;
+            string input = "//;\n8;10;9";
+
+            // Act
+            int output = sc.Add(input);
+
+            // Assert
+            Assert.Equal(expected, output);
+
+        }
     }
 }
