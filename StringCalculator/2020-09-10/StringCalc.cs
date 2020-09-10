@@ -4,9 +4,11 @@ namespace _2020_09_10
     {
         public int Add(string numbers)
         {
-            if(numbers.Contains(","))
+            if(numbers.Contains(",") || numbers.Contains("\n"))
             {
-                string[] nums = numbers.Split(",");
+                char[] dividers = { ',', '\n' };
+                
+                string[] nums = numbers.Split(dividers);
                 int sum = 0;
 
                 foreach(string num in nums)
