@@ -53,6 +53,18 @@ namespace _2020_10_13
             Assert.Equal(10,output);
         }
 
+        [Fact]
+        public void ReturnsSumGivenThreeNumWithNewLine()
+        {
+            StringCalculator stringCalc = new StringCalculator();
+
+            String input = "2,2\n6";
+
+            int output = stringCalc.Add(input);
+
+            Assert.Equal(10,output);
+        }
+
     
     }
 }
