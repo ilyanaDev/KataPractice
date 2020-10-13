@@ -6,10 +6,12 @@ namespace _2020_10_13
     {
         public int Add(string numbers)
         {
+
             if(String.IsNullOrEmpty(numbers))
             {
                 return 0;
             }
+
             
             String[] nums;
 
@@ -29,6 +31,24 @@ namespace _2020_10_13
                 delimiter[1] = '\n';
 
             }
+
+            if(numbers.Contains("-"))           
+            {
+                string negs = "";
+
+                for(int i = 0; i < numbers.Length; i++)
+                {
+                    if(numbers.Substring(i,1) == "-")
+                    {
+                        negs = negs + numbers.Substring(i,2) + ",";
+                    }
+                }
+
+                negs = negs.Substring(0,negs.Length - 1);
+                
+                throw new ArgumentException("Negatives not allowed: " + negs);
+            }
+
 
             nums = numbers.Split(delimiter);
 
