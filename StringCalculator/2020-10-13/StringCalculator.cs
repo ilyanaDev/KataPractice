@@ -6,28 +6,43 @@ namespace _2020_10_13
     {
         public int Add(string numbers)
         {
-            if(numbers.Contains(",") || numbers.Contains("\n"))
+            if(String.IsNullOrEmpty(numbers))
             {
-                char[] deliniators = {',', '\n'};
-                
-                String[] nums = numbers.Split(deliniators);
-
-                int sum = 0;
-
-                foreach(string num in nums)
-                {
-                    sum += int.Parse(num);
-                }
-
-                return sum;
+                return 0;
             }
             
-            if(!string.IsNullOrEmpty(numbers))
+            String[] nums;
+
+            char[] delimiter = new char[2];
+
+            if(numbers.StartsWith("//"))
             {
-                return int.Parse(numbers);
+                delimiter[0] = char.Parse(numbers.Substring(2,1));
+
+                numbers = numbers.Substring(4);
+
             }
-            
-            return 0;
+
+            else
+            {
+                delimiter[0] = ',';
+                delimiter[1] = '\n';
+
+            }
+
+            nums = numbers.Split(delimiter);
+
+
+            int sum = 0;
+
+            foreach(string num in nums)
+            {
+                sum += int.Parse(num);
+            }
+
+            return sum;            
+
+                        
         }
     }
 }

@@ -65,6 +65,18 @@ namespace _2020_10_13
             Assert.Equal(10,output);
         }
 
+        [Fact]
+        public void ReturnsSumGivenUserDefinedDelimiter()
+        {
+            StringCalculator stringCalc = new StringCalculator();
+
+            String input = "//;\n6;5;7";
+
+            int output = stringCalc.Add(input);
+
+            Assert.Equal(18,output);
+        }
+
     
     }
 }
