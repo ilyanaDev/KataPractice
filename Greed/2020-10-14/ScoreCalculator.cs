@@ -34,11 +34,6 @@ namespace _2020_10_14
         }
     }
 
-    public interface IRule
-    {
-        public int Score(List<int> dice);
-    }
-
     public class Single1Rule : IRule
     {
         public int Score(List<int> dice)
@@ -61,84 +56,6 @@ namespace _2020_10_14
                 dice.Remove(i);
             }
 
-
-            return score;
-        }
-    }
-    public class Single5Rule : IRule
-    {
-        public int Score(List<int> dice)
-        {
-            int score = 0;
-
-            List<int> diceToRemove = new List<int>();
-
-            foreach (int i in dice)
-            {
-                if(i == 5)
-                {
-                    score += 50;
-                    diceToRemove.Add(i);
-                }
-            }
-
-            foreach (int i in diceToRemove)
-            {
-                dice.Remove(i);
-            }
-
-            return score;
-        }
-    }
-    
-    public class TripleRule : IRule
-    {   
-        private int tripleNum;
-
-        public TripleRule(int num)
-        {
-            tripleNum = num;
-        }
-        public int Score(List<int> dice)
-        {
-            int score = 0;
-
-            List<int> allOfTripleNum = dice.FindAll(i => i == tripleNum);
-
-            if(dice.Count < 3 || allOfTripleNum.Count < 3)
-            {
-                return score;
-            }
-
-            score = 100 * tripleNum;
-
-            dice.Remove(tripleNum);
-            dice.Remove(tripleNum);
-            dice.Remove(tripleNum);
-
-            return score;
-        }
-    }
-    public class TripleOneRule : IRule
-    {   
-        private int tripleNum = 1;
-
-        public int Score(List<int> dice)
-        {
-            int score = 0;
-
-            List<int> allOfTripleNum = dice.FindAll(i => i == tripleNum);
-
-            if(dice.Count < 3 || allOfTripleNum.Count < 3)
-            {
-                return score;
-            }
-
-            score = 1000;
-
-            dice.Remove(tripleNum);
-            dice.Remove(tripleNum);
-            dice.Remove(tripleNum);
 
             return score;
         }
