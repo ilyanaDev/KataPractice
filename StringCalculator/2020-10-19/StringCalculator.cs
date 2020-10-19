@@ -15,15 +15,32 @@ namespace _2020_10_19
 
             char[] delimiters = { ',', '\n'};
 
+            string[] nums = numbers.Split(delimiters);
+
             if (numbers.StartsWith("//"))
             {
+                if(numbers.Contains("["))
+                {
+                    string delim = numbers.Substring(numbers.IndexOf("[") + 1, numbers.IndexOf("]"));
+
+                    numbers = numbers.Substring(numbers.IndexOf("]\n") + 2);
+
+                    nums = numbers.Split(delim);
+                }
+
+                else
+                {
                 char delimiter = char.Parse( numbers.Substring(2,1));
                 delimiters[0] = delimiter;
+                delimiters[1] = delimiter;
 
                 numbers = numbers.Substring(4);
+
+                nums = numbers.Split(delimiters);
+
+                }
             }
 
-            string[] nums = numbers.Split(delimiters);
 
             if(numbers.Contains("-"))
             {

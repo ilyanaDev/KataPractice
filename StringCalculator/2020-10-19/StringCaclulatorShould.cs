@@ -92,5 +92,16 @@ namespace _2020_10_19
 
             Assert.Equal(1011, output);
         }
+
+        [Fact]
+        public void HandlesAnyLengthDelimiters()
+        {
+            string input = "//[|||]\n1|||2|||3";
+            StringCalculator sc = new StringCalculator();
+
+            int output = sc.Add(input);
+
+            Assert.Equal(6, output);
+        }
     }
 }
