@@ -48,5 +48,16 @@ namespace _2020_10_19
 
             Assert.Equal(11, output);
         }
+
+        [Fact]
+        public void ReturnSumGivenNewLine()
+        {
+            string input = "5\n4\n2";
+            StringCalculator sc = new StringCalculator();
+
+            int output = sc.Add(input);
+
+            Assert.Equal(11, output);
+        }
     }
 }

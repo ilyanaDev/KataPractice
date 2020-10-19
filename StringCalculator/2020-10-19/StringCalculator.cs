@@ -12,7 +12,9 @@ namespace _2020_10_19
                 return 0;
             }
 
-            string[] nums = numbers.Split(",");
+            char[] delimiters = { ',', '\n'};
+
+            string[] nums = numbers.Split(delimiters);
             int sum = 0;
 
             foreach (string num in nums)
