@@ -70,5 +70,16 @@ namespace _2020_10_19
 
             Assert.Equal(11, output);
         }
+
+        [Fact]
+        public void ThrowsErrorGivenNeg()
+        {
+            string input = "5,4,-2,-1";
+            StringCalculator sc = new StringCalculator();
+
+            var result = Assert.Throws<Exception>(() => sc.Add(input));
+
+            Assert.Equal("Negatives not allowed: -2,-1", result.Message);
+        }
     }
 }
