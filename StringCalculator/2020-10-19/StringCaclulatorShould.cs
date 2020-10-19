@@ -37,5 +37,16 @@ namespace _2020_10_19
 
             Assert.Equal(9, output);
         }
+
+        [Fact]
+        public void ReturnSumGivenThreeNum()
+        {
+            string input = "5,4,2";
+            StringCalculator sc = new StringCalculator();
+
+            int output = sc.Add(input);
+
+            Assert.Equal(11, output);
+        }
     }
 }
