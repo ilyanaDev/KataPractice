@@ -30,14 +30,13 @@ namespace _2020_10_19
 
                 else
                 {
-                char delimiter = char.Parse( numbers.Substring(2,1));
-                delimiters[0] = delimiter;
-                delimiters[1] = delimiter;
+                    char delimiter = char.Parse( numbers.Substring(2,1));
+                    delimiters[0] = delimiter;
+                    delimiters[1] = delimiter;
 
-                numbers = numbers.Substring(4);
+                    numbers = numbers.Substring(4);
 
-                nums = numbers.Split(delimiters);
-
+                    nums = numbers.Split(delimiters);
                 }
             }
 
