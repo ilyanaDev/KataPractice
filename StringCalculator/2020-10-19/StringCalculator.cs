@@ -14,6 +14,14 @@ namespace _2020_10_19
 
             char[] delimiters = { ',', '\n'};
 
+            if (numbers.StartsWith("//"))
+            {
+                char delimiter = char.Parse( numbers.Substring(2,1));
+                delimiters[0] = delimiter;
+
+                numbers = numbers.Substring(4);
+            }
+
             string[] nums = numbers.Split(delimiters);
             int sum = 0;
 
