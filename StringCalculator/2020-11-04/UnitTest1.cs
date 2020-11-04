@@ -101,5 +101,17 @@ namespace _2020_11_04
             Assert.Equal(1014, output);
         }
 
+        [Fact]
+        public void HandlesAnyLengthDelimiter()
+        {
+            var input = "//[|||]\n5|||7|||2";
+
+            StringCalculator sc = new StringCalculator();
+
+            var output = sc.Add(input);
+            
+            Assert.Equal(14, output);
+        }
+
     }
 }
