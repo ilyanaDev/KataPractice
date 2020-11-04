@@ -22,7 +22,9 @@ namespace _2020_11_04
                     int startingIndex = numbers.IndexOf("[") + 1;
                     int endingIndex = numbers.IndexOf("]");
                     
-                    string delimiter = numbers.Substring(startingIndex, endingIndex - startingIndex + 1);
+                    string delimiter = numbers.Substring(startingIndex, endingIndex - startingIndex - 1);
+
+                    numbers = numbers.Substring(endingIndex + 2);
 
                     string[] myNums = numbers.Split(delimiter);
 
