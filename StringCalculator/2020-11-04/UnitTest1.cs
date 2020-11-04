@@ -40,5 +40,17 @@ namespace _2020_11_04
             
             Assert.Equal(12, output);
         }
+
+        [Fact]
+        public void ReturnsSumGivenFourNum()
+        {
+            var input = "5,7,2,0";
+
+            StringCalculator sc = new StringCalculator();
+
+            var output = sc.Add(input);
+            
+            Assert.Equal(14, output);
+        }
     }
 }
