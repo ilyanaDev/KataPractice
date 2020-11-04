@@ -9,23 +9,28 @@ namespace _2020_11_04
                 return 0;
             }
 
-            if (numbers.Contains(",") || numbers.Contains("\n"))
+            char[] delimiters = { ',' , '\n'};
+
+            if (numbers.StartsWith("//"))
             {
-                char[] delimiters = { ',' , '\n'};
+                delimiters[0] = char.Parse(numbers.Substring(2,1));
+                delimiters[1] = char.Parse(numbers.Substring(2,1));
 
-                string[] nums = numbers.Split(delimiters);
-
-                int sum = 0;
-
-                foreach (var num in nums)
-                {
-                    sum += int.Parse(num);
-                }
-
-                return sum;
+                numbers = numbers.Substring(4);
             }
+
             
-            return int.Parse(numbers);
+            string[] nums = numbers.Split(delimiters);
+
+            int sum = 0;
+
+            foreach (var num in nums)
+            {
+                sum += int.Parse(num);
+            }
+
+            return sum;
+
         }
     }
 }

@@ -64,5 +64,17 @@ namespace _2020_11_04
             
             Assert.Equal(14, output);
         }
+
+        [Fact]
+        public void HandlesCustomDelimiter()
+        {
+            var input = "//;\n5;7;2;4";
+
+            StringCalculator sc = new StringCalculator();
+
+            var output = sc.Add(input);
+            
+            Assert.Equal(18, output);
+        }
     }
 }
