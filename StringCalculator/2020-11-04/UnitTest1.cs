@@ -88,5 +88,18 @@ namespace _2020_11_04
 
             Assert.Equal("Negatives not allowed: -2,-1", result.Message);
         }
+
+        [Fact]
+        public void IgnoresNumsOver1000()
+        {
+            var input = "5,7,2,1001, 1000";
+
+            StringCalculator sc = new StringCalculator();
+
+            var output = sc.Add(input);
+            
+            Assert.Equal(1014, output);
+        }
+
     }
 }

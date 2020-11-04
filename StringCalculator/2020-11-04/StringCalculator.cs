@@ -36,7 +36,10 @@ namespace _2020_11_04
                     negs.Add(int.Parse(num));
                 }
                 
-                sum += int.Parse(num);
+                if (int.Parse(num) <= 1000)
+                {
+                    sum += int.Parse(num);
+                }
             }
 
             if (negs.Count > 0)
