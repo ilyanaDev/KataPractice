@@ -52,5 +52,17 @@ namespace _2020_11_04
             
             Assert.Equal(14, output);
         }
+
+        [Fact]
+        public void HandlesNewLineDelimiter()
+        {
+            var input = "5,7\n2,0";
+
+            StringCalculator sc = new StringCalculator();
+
+            var output = sc.Add(input);
+            
+            Assert.Equal(14, output);
+        }
     }
 }

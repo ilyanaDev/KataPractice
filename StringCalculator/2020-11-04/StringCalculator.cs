@@ -9,9 +9,11 @@ namespace _2020_11_04
                 return 0;
             }
 
-            if (numbers.Contains(","))
+            if (numbers.Contains(",") || numbers.Contains("\n"))
             {
-                string[] nums = numbers.Split(",");
+                char[] delimiters = { ',' , '\n'};
+
+                string[] nums = numbers.Split(delimiters);
 
                 int sum = 0;
 
