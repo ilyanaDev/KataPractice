@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace _2020_11_04
 {
     public class StringCalculator
@@ -21,12 +24,33 @@ namespace _2020_11_04
 
             
             string[] nums = numbers.Split(delimiters);
+            List<int> negs = new List<int>();
 
             int sum = 0;
 
             foreach (var num in nums)
             {
+
+                if (int.Parse(num) < 0)
+                {
+                    negs.Add(int.Parse(num));
+                }
+                
                 sum += int.Parse(num);
+            }
+
+            if (negs.Count > 0)
+            {
+                string message = "Negatives not allowed: ";
+
+                foreach(int neg in negs)
+                {
+                    message += neg + ",";
+                }
+
+                message = message.Substring(0, message.Length - 1);
+
+                throw new Exception(message);
             }
 
             return sum;
