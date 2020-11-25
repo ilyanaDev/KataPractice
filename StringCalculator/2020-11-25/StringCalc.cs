@@ -29,7 +29,10 @@ namespace _2020_11_25
 
             foreach (string num in nums)
             {
-                sum += int.Parse(num);
+                if(int.Parse(num) <= 1000)
+                {
+                    sum += int.Parse(num);
+                }
 
                 if(int.Parse(num) < 0)
                 {
