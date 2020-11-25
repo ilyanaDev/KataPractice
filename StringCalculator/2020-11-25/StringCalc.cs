@@ -8,10 +8,16 @@ namespace _2020_11_25
         {
             if(numbers.Contains(","))
             {
-                string num1 = numbers.Substring(0, numbers.IndexOf(","));
-                string num2 = numbers.Substring(numbers.IndexOf(",") + 1);
 
-                int sum = int.Parse(num1) + int.Parse(num2);
+                string[] nums = numbers.Split(",");
+
+                int sum = 0;
+
+                foreach (string num in nums)
+                {
+                    sum += int.Parse(num);
+                }
+
                 return sum;
             }
             

@@ -38,5 +38,16 @@ namespace _2020_11_25
 
             Assert.Equal(13, output);
         }
+
+        [Fact]
+        public void ReturnSumGivenFiveNum()
+        {
+            string input = "6,7,2,0,1";
+            StringCalc sc = new StringCalc();
+
+            var output = sc.Add(input);
+
+            Assert.Equal(16, output);
+        }
     }
 }
