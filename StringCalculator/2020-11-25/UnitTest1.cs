@@ -16,5 +16,16 @@ namespace _2020_11_25
 
             Assert.Equal(0, output);
         }
+
+        [Fact]
+        public void ReturnNumGivenOneNum()
+        {
+            string input = "67";
+            StringCalc sc = new StringCalc();
+
+            var output = sc.Add(input);
+
+            Assert.Equal(67, output);
+        }
     }
 }

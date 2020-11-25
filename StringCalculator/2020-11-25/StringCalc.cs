@@ -6,6 +6,11 @@ namespace _2020_11_25
     {
         public int Add(string numbers)
         {
+            if(!string.IsNullOrEmpty(numbers))
+            {
+                return int.Parse(numbers);
+            }
+            
             return 0;
         }
     }
