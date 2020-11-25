@@ -27,5 +27,16 @@ namespace _2020_11_25
 
             Assert.Equal(67, output);
         }
+
+        [Fact]
+        public void ReturnSumGivenTwoNum()
+        {
+            string input = "6,7";
+            StringCalc sc = new StringCalc();
+
+            var output = sc.Add(input);
+
+            Assert.Equal(13, output);
+        }
     }
 }
