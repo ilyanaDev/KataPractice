@@ -49,5 +49,16 @@ namespace _2020_11_25
 
             Assert.Equal(16, output);
         }
+
+        [Fact]
+        public void ReturnSumGivenNewLineDelim()
+        {
+            string input = "6,7,2,0\n1";
+            StringCalc sc = new StringCalc();
+
+            var output = sc.Add(input);
+
+            Assert.Equal(16, output);
+        }
     }
 }

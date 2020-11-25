@@ -6,10 +6,11 @@ namespace _2020_11_25
     {
         public int Add(string numbers)
         {
-            if(numbers.Contains(","))
+            if(numbers.Contains(",") || numbers.Contains("\n"))
             {
+                char[] delimiters = { ',' , '\n'};
 
-                string[] nums = numbers.Split(",");
+                string[] nums = numbers.Split(delimiters);
 
                 int sum = 0;
 
