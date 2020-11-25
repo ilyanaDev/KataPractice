@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace _2020_11_25
 {
@@ -6,46 +7,52 @@ namespace _2020_11_25
     {
         public int Add(string numbers)
         {
+            if(string.IsNullOrEmpty(numbers))
+            {
+                return 0;
+            }
+
+            char[] delimiters = { ',' , '\n'};
+
             if(numbers.StartsWith("//"))
             {
-                char delimiter = char.Parse(numbers.Substring(2,1));
+                delimiters[0] = char.Parse(numbers.Substring(2,1));
+                delimiters[1] = char.Parse(numbers.Substring(2,1));
                 numbers = numbers.Substring(4);
+            }
 
-                string[] nums = numbers.Split(delimiter);
+            string[] nums = numbers.Split(delimiters);
 
-                int sum = 0;
+            int sum = 0;
 
-                foreach (string num in nums)
+            List<int> negs = new List<int>();
+
+            foreach (string num in nums)
+            {
+                sum += int.Parse(num);
+
+                if(int.Parse(num) < 0)
                 {
-                    sum += int.Parse(num);
+                    negs.Add(int.Parse(num));
+                }
+            }
+
+            if (negs.Count > 0)
+            {
+                string message = "Negatives not allowed: ";
+
+                foreach(int num in negs)
+                {
+                    message = message + num + ",";
                 }
 
-                return sum;
-                
+                message = message.Substring(0, message.Length - 1);
+
+                throw new Exception(message);
             }
-            
-            if(numbers.Contains(",") || numbers.Contains("\n"))
-            {
-                char[] delimiters = { ',' , '\n'};
 
-                string[] nums = numbers.Split(delimiters);
-
-                int sum = 0;
-
-                foreach (string num in nums)
-                {
-                    sum += int.Parse(num);
-                }
-
-                return sum;
-            }
-            
-            if(!string.IsNullOrEmpty(numbers))
-            {
-                return int.Parse(numbers);
-            }
-            
-            return 0;
+            return sum;
+                                        
         }
     }
 }
