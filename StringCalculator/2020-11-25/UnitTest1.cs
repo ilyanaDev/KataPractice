@@ -51,9 +51,20 @@ namespace _2020_11_25
         }
 
         [Fact]
-        public void ReturnSumGivenNewLineDelim()
+        public void ReturnSumGivenNewLineDelimiter()
         {
             string input = "6,7,2,0\n1";
+            StringCalc sc = new StringCalc();
+
+            var output = sc.Add(input);
+
+            Assert.Equal(16, output);
+        }
+
+        [Fact]
+        public void ReturnSumGivenUserDefinedDelimiter()
+        {
+            string input = "//;\n6;7;2;0;1";
             StringCalc sc = new StringCalc();
 
             var output = sc.Add(input);
